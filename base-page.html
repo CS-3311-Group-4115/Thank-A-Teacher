@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Design</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .home-icon {
+             position: absolute;
+             top: 20px;
+             right: 20px;
+             width: 40px;
+             height: 40px;
+             cursor: pointer;
+         }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin: 50px 100px;
+        }
+
+        .blue-section {
+             background-color: #003057;
+             height: 12vh;
+             width: 100%;
+             color: white;
+             padding: 20px;
+             box-sizing: border-box;
+             margin: 0;
+             position: relative;
+             top: 0;
+             left: 0;
+         }
+ 
+         .blue-section p {
+             font-family: Helvetica;
+             font-size: 32px;
+             font-style: normal;
+             font-weight: 400;
+             line-height: normal;
+             margin-top: 5px;
+         }
+
+        .card-preview {
+            width: 300px;
+            height: 500px;
+            background-color: #6799b1;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .message-box-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .message-box-container label {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .message-box-container textarea {
+            width: 300px;
+            height: 150px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+            font-size: 16px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 50px; 
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #003057;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .send-button {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #003057;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .back-button:hover,
+        .send-button:hover {
+            background-color: #00203f;
+        }
+    </style>
+</head>
+<body>
+    <div class="blue-section">
+        <p>3 of 3: Edit Card</p>
+        <img src="IMG_5713.png" alt="Home Icon" class="home-icon" />
+    </div>
+
+    <div class="container">
+        <!-- Card Preview Section (Without the Thank You text) -->
+        <div class="card-preview">
+            <!-- Card content can be inserted here if needed in the future -->
+        </div>
+
+        <!-- Message Box Section -->
+        <div class="message-box-container">
+            <label for="message">Add a Message</label>
+            <textarea id="message" placeholder="Enter your message here"></textarea>
+
+            <div class="controls">
+                <a href="#" class="back-button">&larr;</a>
+                <button class="send-button">Send Card</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
