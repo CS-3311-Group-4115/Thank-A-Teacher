@@ -26,6 +26,14 @@ function BasePage() {
         }
     };
 
+    const handleSendClick = () => {
+        const confirmSend = window.confirm("Are you sure you would like to send this card?");
+        // Modify this if statement for sending the card wherever it's meant to be sent
+        //if (confirmSend) {
+        //    navigate('/basepage');
+        //}
+    };
+
     const handleAddTextBox = () => {
         if (text) {
             setTextBoxes([...textBoxes, { id: textBoxes.length + 1, content: text, color: textColor, textSize: previewTextSize }]);
@@ -138,7 +146,7 @@ function BasePage() {
 
                     <div className="controls">
                         <button onClick={() => navigate('/search')} className="back-button">&larr;</button>
-                        <button className="send-button">Send Card</button>
+                        <button onClick={handleSendClick} className="send-button">Send Card</button>
                     </div>
 
                     <button className="add-text-button" onClick={handleAddTextBox}>
