@@ -52,6 +52,32 @@ function BasePage() {
 
     const handleSendClick = () => {
         const confirmSend = window.confirm("Are you sure you would like to send this card?");
+
+        if (confirmSend) {
+          var card = {'text': []}
+          let card_preview = document.getElementById("preview").children
+          for (let i = 0; i < card_preview.length; i++) {
+              console.log(card_preview.item(i))
+              let element = card_preview.item(i) 
+              //console.log(element.tagName)
+              if (element.tagName == "IMG"){
+                  card['img'] =  element.getAttribute("src")
+              }
+              if (element.tagName == "DIV"){
+                  //card["text-"+i] = {"text": "ee"}
+                  console.log(element.getAttribute("style"))
+                  card["text"].push({"style": element.getAttribute("style"), "text": element.innerHTML})
+              }
+          }
+          fetch('http://localhost:3001/card', {
+              method: 'POST',
+              // We convert the React state to JSON and send it as the POST body
+              body: "tests"
+            }).then(function(response) {
+              console.log(response)
+              return response.json();
+            });
+        }
         if (confirmSend) {
             const message = "hello world!"; // Assuming 'text' contains the card message
             const cardImage = cards[selectedCard - 1]; // Get the selected card image
@@ -73,6 +99,7 @@ function BasePage() {
                 });
 
           }
+
     };
 
     const handleAddTextBox = () => {
@@ -189,7 +216,7 @@ function BasePage() {
             <div className="container">
                 {/* Card Preview Section */}
                 <div className="card-preview-container">
-                    <div className="card-preview">
+                    <div id="preview" className="card-preview">
                         <img src={cards[selectedCard - 1]} alt="Selected card" />
                         { textBoxes.map((box) => (
                             <Draggable 

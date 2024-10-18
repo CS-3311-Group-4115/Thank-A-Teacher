@@ -10,6 +10,7 @@ const corsOptions ={
     optionSuccessStatus:200
 }
 app.use(cors(corsOptions));
+app.use(express.json());
 const port = 3001;
 
 const uri = "mongodb+srv://vhenrixon:QQVTMsoHD2EqzdoC@cluster0.ayl3tmp.mongodb.net/?retryWrites=true&w=majority";
@@ -31,6 +32,25 @@ async function main(){
 
 main().catch(console.error);
 
+app.post('/card', async (req, res) => {
+  console.log(req.body)
+  try {
+    var card = {
+      img: req.body.img,
+      text: req.body.text,
+    };
+    const database = client.db("thank-a-teacher");
+    const cards = database.collection("CARD");
+    cards.insertOne(card, function (err, result) {
+      assert.equal(null, err);
+      console.log('item has been inserted');
+    }) 
+
+  } catch (err) {
+      console.error('Error saving user data:', err);
+      res.status(500);
+  }
+});
 
 app.get("/", function (req, res) {
   res.set('Access-Control-Allow-Origin', '*');
