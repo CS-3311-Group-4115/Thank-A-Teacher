@@ -56,6 +56,7 @@ function BasePage() {
         const confirmSend = window.confirm("Are you sure you would like to send this card?");
 
         if (confirmSend) {
+            // Handling sending the card to the nodejs server
            var card = {'text': []}
            let card_preview = document.getElementById("preview").children
            for (let i = 0; i < card_preview.length; i++) {
@@ -108,7 +109,7 @@ function BasePage() {
         //   }
 
         // Temporary function that creates a local link that hosts the image of the card
-        /*
+        
         if (confirmSend) {
             const cardPreview = document.querySelector('.card-preview-container');
     
@@ -139,7 +140,7 @@ function BasePage() {
             }
             
         }
-        */
+        
         if (confirmSend) {
           // Navigate to the SentPage to show the animation
           navigate('/sent');
