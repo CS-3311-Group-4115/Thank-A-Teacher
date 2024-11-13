@@ -76,13 +76,12 @@ function BasePage() {
             });
 
         } 
-        /* un do after
+
         if (confirmSend) {
-        const message = "hello world!"; // Assuming 'text' contains the card message
-        const cardImage = cards[selectedCard - 1]; // Get the selected card image
+        const message = "You have gotten a Card! http://localhost:3000/login!"; // Assuming 'text' contains the card message
     
         const templateParams = {
-            to_email: 'jessierigsbee@gmail.com', // Recipient email
+            to_email: selectedTAEmail, // Recipient email
             from_name: 'thankateacher', // Sender name (could be dynamic)
             message: message,
         };
@@ -97,7 +96,6 @@ function BasePage() {
             alert('Failed to send email.');
         });
         
-
     }
 
         // Temporary function that creates a local link that hosts the image of the card

@@ -33,7 +33,7 @@ const LoginPage = ({ setToken }) => {
         if(token.isTa) {
             return navigate('/inbox')
         }else {
-            return navigate('/search')
+            return navigate('/')
         }
       }
     
