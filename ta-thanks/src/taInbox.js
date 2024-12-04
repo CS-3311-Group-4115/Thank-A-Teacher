@@ -53,11 +53,10 @@ function TaInbox({ taId }) {
 
     const [sortOrder, setSortOrder] = useState('ascending'); // Default: ascending
 
-    const sortedCards = [...filteredCards].sort((a, b) => {
-        const dateA = new Date(a.date);
-        const dateB = new Date(b.date);
-        return sortOrder === 'ascending' ? dateA - dateB : dateB - dateA;
-    });
+    const sortedCards = sortOrder === 'ascending' 
+        ? [...filteredCards] 
+        : [...filteredCards].reverse();
+    
     
 
     return (
